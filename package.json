@@ -5,27 +5,27 @@
   "description": "a first look at using node, express and mocha frameworks to create a web app",
   "contributors": [ 
     {
-      "name": "Carl Phillips",
-      "email": "c_phillips_2000@yahoo.co.uk"
+      "name": "Carl Phillips"
+      ,"email": "c_phillips_2000@yahoo.co.uk"
     } 
   ]
-  , "repository": {
-    "type": "mercurial",
-    "url": "https://bitbucket.org/Carphill007/nodemessaround"
+  ,"repository": {
+    "type": "mercurial"
+    ,"url": "https://bitbucket.org/Carphill007/nodemessaround"
   }
-  , "dependencies" : {
-    "express" :  "3.3.x",
-	"jade" : "*",
-	"stylus": "*",
-	"mongodb": ">= 0.9.6-7"
+  ,"dependencies" : {
+    "express" :  "3.3.x"
+	,"jade" : "*"
+	,"stylus": "*"
+	,"mongodb": ">= 0.9.6-7"
   }
-  , "devDependencies": {
+  ,"devDependencies": {
 	"mocha"   :  "1.12.x"
   }
-  , "scripts": {
+  ,"scripts": {
         "test"	: "mocha"
     }
-  , "license": "MIT",
+  ,"license": "MIT",
   "engines": {
     "node": ">=0.6"
   }
