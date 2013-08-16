@@ -1,0 +1,29 @@
+{
+  "name": "node-express-messaround",
+  "version": "0.0.1",
+  "author": "Carl Phillips <c_phillips_2000@yahoo.co.uk>",
+  "description": "a first look at using node, express and mocha frameworks to create a web app",
+  "contributors": [ 
+    {
+      "name": "Carl Phillips",
+      "email": "c_phillips_2000@yahoo.co.uk"
+    } 
+  ],
+  "repository": {
+    "type": "mercurial",
+    "url": "https://bitbucket.org/Carphill007/nodemessaround"
+  },
+    "dependencies" : {
+    "express" :  "3.3.x",
+	"jade" : "*",
+	"stylus": "*",
+	"mongodb": ">= 0.9.6-7"
+  },
+  "devDependencies": {
+	"mocha"   :  "1.12.x"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
