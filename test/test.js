@@ -1,5 +1,5 @@
 var assert = require("assert");
-var EmployeeProvider = require('./employeeprovider.js').EmployeeProvider;
+var EmployeeProvider = require('../employeeprovider.js').EmployeeProvider;
 
 describe('Array', function(){
   describe('#indexOf()', function(){
