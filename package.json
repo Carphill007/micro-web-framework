@@ -22,6 +22,9 @@
   "devDependencies": {
 	"mocha"   :  "1.12.x"
   },
+  "scripts": {
+        "test"                      : "mocha"
+    }
   "license": "MIT",
   "engines": {
     "node": ">=0.6"
