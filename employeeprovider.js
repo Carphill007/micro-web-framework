@@ -5,7 +5,6 @@ var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
 
 EmployeeProvider = function(connectionManager) {
-  console.log('Calling new EmployeeProvider');
   this.db = connectionManager.db;
   this.db.open(function(){});
 };

@@ -29,7 +29,6 @@ app.configure('development', function(){
 
 
 var connectionManager = new ConnectionManager('localhost', 27017);
-console.log('connectionManager created');
 var employeeProvider= new EmployeeProvider(connectionManager);
 
 //Routes
