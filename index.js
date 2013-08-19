@@ -3,7 +3,8 @@ var express = require('express')
   //, user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , EmployeeProvider = require('./employeeprovider.js').EmployeeProvider;
+  , EmployeeProvider = require('./employeeprovider.js').EmployeeProvider
+  , ConnectionManager = require('./connectionmanager.js').ConnectionManager;
 
 var app = express();
 
@@ -26,7 +27,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-var employeeProvider= new EmployeeProvider('localhost', 27017);
+
+var connectionManager = new ConnectionManager('localhost', 27017);
+console.log('connectionManager created');
+var employeeProvider= new EmployeeProvider(connectionManager);
 
 //Routes
 

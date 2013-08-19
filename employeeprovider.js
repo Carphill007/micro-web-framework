@@ -4,8 +4,9 @@ var Server = require('mongodb').Server;
 var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
 
-EmployeeProvider = function(host, port) {
-  this.db= new Db('node-mongo-employee', new Server(host, port), {w: 1});
+EmployeeProvider = function(connectionManager) {
+  console.log('Calling new EmployeeProvider');
+  this.db = connectionManager.db;
   this.db.open(function(){});
 };
 
