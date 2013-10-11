@@ -9,5 +9,11 @@ node based micro web framework solution using the obvious libraries:
 - stylus for stylesheets
 - mongodb for persistence
 
-Dependancies: You must have MongoDB installed for persistance.
-Tests: Run test with "npm test"
+Dependencies:
+You must have MongoDB installed for persistence.
+You must have node installed to run
+
+Tests: 
+Run test with "npm test"
+Run: 
+from command line > node index.js > Open browser to http://localhost:3000

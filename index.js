@@ -85,4 +85,16 @@ app.post('/employee/:id/delete', function(req, res) {
         });
 });
 
+app.get('/about', function(req, res) {
+    res.render('about', {
+        title: 'About'
+    });
+});
+
+app.get('/contact', function(req, res) {
+    res.render('contact', {
+        title: 'Contact'
+    });
+});
+
 app.listen(3000);
