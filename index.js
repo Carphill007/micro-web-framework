@@ -27,6 +27,15 @@ app.configure(function(){
 		// get the "status" local available as well
 		res.render('404', { status: 404, url: req.url });
   });
+  app.use(function(err, req, res, next){
+  // we may use properties of the error object
+  // here and next(err) appropriately, or if
+  // we possibly recovered from the error, simply next().
+  res.render('500', {
+      status: err.status || 500
+    , error: err
+  });
+});
 });
 
 app.configure('development', function(){
