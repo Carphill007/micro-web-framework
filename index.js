@@ -21,6 +21,12 @@ app.configure(function(){
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
+  app.use(function(req, res, next){
+		// the status option, or res.statusCode = 404
+		// are equivalent, however with the option we
+		// get the "status" local available as well
+		res.render('404', { status: 404, url: req.url });
+  });
 });
 
 app.configure('development', function(){
@@ -96,5 +102,6 @@ app.get('/contact', function(req, res) {
         title: 'Contact'
     });
 });
+
 
 app.listen(3000);
