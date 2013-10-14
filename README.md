@@ -8,6 +8,8 @@ node based micro web framework solution using the obvious libraries:
 - express for micro web framework
 - stylus for stylesheets
 - mongodb for persistence
+- passport for authentication
+- connect-ensure-login to protect authenticated routes
 
 Dependencies:
 You must have MongoDB installed for persistence.
