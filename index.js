@@ -4,31 +4,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , EmployeeProvider = require('./employeeprovider.js').EmployeeProvider
-  , ConnectionManager = require('./connectionmanager.js').ConnectionManager
-  , passport = require('passport')
-  , TwitterStrategy = require('passport-twitter').Strategy
-  , flash = require('connect-flash');
-  
-passport.serializeUser(function(user, done) {
-    done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-    done(null, obj);
-});
-
-/* passport.use(new TwitterStrategy({
-    consumerKey: 'QfgNILJPVEMpasuDA4wCA',
-    consumerSecret: 'tTxaM24qDea2sCrgCpMgRMKpxSr8F0QT6uEdqP8iNvE',
-    callbackURL: ""
-  },
-  function(token, tokenSecret, profile, done) {
-    User.findOrCreate(..., function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });
-  }
-)); */
+  , ConnectionManager = require('./connectionmanager.js').ConnectionManager;
 
 var app = express();
 
@@ -62,15 +38,11 @@ app.configure(function(){
 		, error: err
 	  });
   });
-  app.use(flash());
-  app.use(passport.initialize());
-  app.use(passport.session());
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
-
 
 var connectionManager = new ConnectionManager('localhost', 27017);
 var employeeProvider= new EmployeeProvider(connectionManager);
@@ -83,27 +55,15 @@ app.get('/', function(req, res){
 });
 
 
-app.get('/employee/list', function(req, res){
-  employeeProvider.findAll(function(error, emps){
+app.get('/employee/list', 
+  function(req, res){  
+    employeeProvider.findAll(function(error, emps){
 	  res.render('employee_list', {
             title: 'Employees',
             employees:emps
         });
   });
 });
-
-// Redirect the user to Twitter for authentication.  When complete, Twitter
-// will redirect the user back to the application at
-//   /auth/twitter/callback
-app.get('/auth/twitter', passport.authenticate('twitter'));
-
-// Twitter will redirect the user to this URL after approval.  Finish the
-// authentication process by attempting to obtain an access token.  If
-// access was granted, the user will be logged in.  Otherwise,
-// authentication has failed.
-app.get('/auth/twitter/callback', 
-  passport.authenticate('twitter', { successRedirect: '/',
-                                     failureRedirect: '/login' }));
 
 app.get('/employee/new', function(req, res) {
     res.render('employee_new', {
@@ -159,6 +119,5 @@ app.get('/contact', function(req, res) {
         title: 'Contact'
     });
 });
-
 
 app.listen(3000);
