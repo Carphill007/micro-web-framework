@@ -1,6 +1,6 @@
 {
   "name": "node-express-messaround",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "author": "Carl Phillips <c_phillips_2000@yahoo.co.uk>",
   "description": "a first look at using node, express and mocha frameworks to create a web app",
   "contributors": [
@@ -17,7 +17,8 @@
     "express": "3.3.x",
     "jade": "*",
     "stylus": "*",
-    "mongodb": ">= 0.9.6-7"
+    "mongodb": ">= 0.9.6-7",
+    "newrelic": "*"
   },
   "devDependencies": {
     "mocha": "1.12.x",
