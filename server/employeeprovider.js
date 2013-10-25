@@ -3,10 +3,11 @@ var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
 var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
+var util = require('util');
 
-EmployeeProvider = function(connectionManager) {
-  this.db = connectionManager.db;
-  this.db.open(function(){});
+EmployeeProvider = function(opendb) {
+  //console.log('opendb is :' + util.inspect(opendb));
+  this.db = opendb;
 };
 
 

@@ -1,4 +1,4 @@
-module.exports.setup = function(app, employeeProvider){
+module.exports.setup = function(app, employeeProvider, analyticsProvider){
     //Routes
     app.get('/', function(req, res){
       res.render('index', {
@@ -67,8 +67,22 @@ module.exports.setup = function(app, employeeProvider){
     });
 
     app.get('/contact', function(req, res) {
-        res.render('contact', {
-            title: 'Contact'
-        });
+        analyticsProvider.save({contact_requests: 1},
+            function( error, docs) {
+                 res.render('contact', {
+                     title: 'Contact'
+                 });
+            });
+        
     });
+
+    app.get('/analytics',
+        function(req, res){  
+           analyticsProvider.findAll(function(error, anal){
+               res.render('analytics', {
+                   title: 'Analytics',
+                   analytics:anal
+               });
+           });
+        });
 };

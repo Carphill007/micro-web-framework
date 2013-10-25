@@ -6,7 +6,9 @@ module.exports.setup = function(options){
   var http = require('http')
   , path = require('path')
   , EmployeeProvider = require('./employeeprovider.js').EmployeeProvider
+  , AnalyticsProvider = require('./analyticsprovider.js').AnalyticsProvider
   , ConnectionManager = require('./connectionmanager.js').ConnectionManager
+  , DBProvider = require('./dbprovider.js').DBProvider
   , routes = require('./routes.js');
 
   app.configure(function(){
@@ -46,9 +48,11 @@ module.exports.setup = function(options){
   });
 
   var connectionManager = new ConnectionManager('localhost', 27017);
-  var employeeProvider= new EmployeeProvider(connectionManager);
+  var openddb = new DBProvider(connectionManager);
+  var employeeProvider= new EmployeeProvider(openddb);
+  var analyticsProvider= new AnalyticsProvider(openddb);
 
-  routes.setup(app, employeeProvider);
+  routes.setup(app, employeeProvider, analyticsProvider);
 };
 
 module.exports.listen = function()
